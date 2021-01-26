@@ -1,0 +1,2 @@
+As we introduced few months ago, we have been working on a "Fat JAR" packaging for WildFly. We are pleased to announce that the 2.0.0 Final version of the WildFly bootable JAR Maven plugin has been released.
+A bootable JAR allows you to package both the server and your application deployment inside a single JAR file and execute it with a simple command such as java -jar myapp-bootable.jar.
