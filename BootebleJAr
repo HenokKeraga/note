@@ -3,43 +3,14 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java-library'
     id 'maven-publish'
-    id "com.mkring.wildlydeplyplugin.deploy-wildfly-plugin" version "0.3.0-wildfly15"
-    id 'signing'
+
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 
-repositories {
-    mavenCentral()
-}
-
-ext {
-    set('springGeodeVersion', "1.4.1")
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.geode:spring-geode-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.geode:spring-geode-bom:${springGeodeVersion}"
-    }
-}
 jar {
     enabled = true
     manifest {
@@ -55,12 +26,6 @@ bootJar {
 archiveClassifier.set('bootJar')
 }
 
-test {
-    useJUnitPlatform()
-}
-springBoot {
-    mainClass = 'com.example.geodecacheapplicationupdate.GeodeCacheApplicationUpdateApplication'
-}
 publishing {
     publications {
         mavenJava(MavenPublication) {
